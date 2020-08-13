@@ -1,0 +1,7 @@
+# Book settings
+title: Parts, Chapters and Sections (Sample)
+author: The Jupyter Book Community
+
+latex:
+  latex_documents:
+    targetname: book.tex
