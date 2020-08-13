@@ -1,4 +1,4 @@
-# ebp-toc-testproject
+# ebp-test-projectstructure
 
 A testing ground to explore jupyter-book project structures for `toc` and the matching of `html` and `latex` outputs.
 
