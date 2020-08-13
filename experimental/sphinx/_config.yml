@@ -1,0 +1,7 @@
+# Book settings
+title: Sphinx (toctree) Setup
+author: EBP
+
+latex:
+  latex_documents:
+    targetname: book.tex
