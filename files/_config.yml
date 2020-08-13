@@ -1,0 +1,7 @@
+# Book settings
+title: Chapter Listing
+author: EBP
+
+latex:
+  latex_documents:
+    targetname: book.tex
