@@ -1,7 +1,4 @@
 `jupyter-book` Project Configuration
 ====================================
 
-Various `jupyter-book` project configurations.
-
-```{tableofcontents}
-```
+A test repository for various `jupyter-book` project configurations.
