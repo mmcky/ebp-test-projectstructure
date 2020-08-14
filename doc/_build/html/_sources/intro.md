@@ -1,7 +1,9 @@
-`jupyter-book` Project Configuration
-====================================
+# `jupyter-book` Project Configuration
 
-Various `jupyter-book` project configurations.
+A test repository for various `jupyter-book` project configurations.
 
-```{tableofcontents}
-```
+## LaTeX References
+
+An excellent resource for LaTeX document structures
+
+1. [LaTeX Document Structure](https://en.wikibooks.org/wiki/LaTeX/Document_Structure)

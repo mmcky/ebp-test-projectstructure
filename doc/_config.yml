@@ -3,6 +3,10 @@ title: Comparison of Global Project Configuration
 author: EBP Developer Team
 logo: logo.png
 
+sphinx:
+  extra_extensions:
+    - sphinx_panels
+
 latex:
   latex_documents:
     targetname: book.tex
