@@ -36,3 +36,15 @@ the `xml`
         <compound classes="toctree-wrapper">
             <toctree caption="True" entries="(None,\ 'chapter1') (None,\ 'chapter2')" glob="False" hidden="False" includefiles="chapter1 chapter2" includehidden="False" maxdepth="-1" numbered="999" parent="index" rawentries="" titlesonly="False">
 ```
+
+Perhaps we could have a tagged item for `sphinx` based `toctree` projects
+
+```yaml
+sphinx:
+  - file: index
+```
+
+```{todo}
+would need to figure out how to clear the `sphinx` warnings and recognise the
+toctree listing in `index.md`
+```
