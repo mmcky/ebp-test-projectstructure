@@ -26,6 +26,7 @@
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/mystnb.js"></script>
     <script src="_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -72,24 +73,36 @@
 </form>
 
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  
   <ul class="nav sidenav_l1">
-  <li class="">
-    <a href="intro.html">jupyter-book Project Configuration</a>
-  </li>
-  <li class="">
-    <a href="file.html">File</a>
-  </li>
-  <li class="">
-    <a href="parts_chapter.html">Parts & Chapter</a>
-  </li>
-  <li class="">
-    <a href="experimental.html">Experimental</a>
-  </li>
-  <li class="active">
-    <a href="">Proposals</a>
-  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   jupyter-book Project Configuration
+  </a>
+ </li>
 </ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="file.html">
+   File
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="parts_chapter.html">
+   Parts &amp; Chapter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="experimental.html">
+   Experimental
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Proposals
+  </a>
+ </li>
+</ul>
+
 </nav>
 
  <!-- To handle the deprecated key -->
@@ -112,60 +125,65 @@
     </div>
     <div class="col pl-2 topbar-main">
         
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
             <i class="fas fa-bars"></i>
             <i class="fas fa-arrow-left"></i>
             <i class="fas fa-arrow-up"></i>
         </button>
         
         <div class="dropdown-buttons-trigger">
-            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
 
-            
-            <div class="dropdown-buttons">
-                <!-- ipynb file if we had a myst markdown file -->
-                
-                <!-- Download raw file -->
-                <a class="dropdown-buttons" href="_sources/proposal.md"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.md</button></a>
-                <!-- Download PDF via print -->
-                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-            </div>
-            
-        </div>
-
-        <!-- Edit this page -->
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
         
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/proposal.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
 
         <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
-        
+
     </div>
+
+    <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
-<div class="tocsection onthispage pt-5 pb-3">
-    <i class="fas fa-list"></i> On this page
-</div>
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#option-getting-current-solution-to-work">
+   Option: Getting Current Solution to Work
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#option-book">
+   Option: Book
+  </a>
+ </li>
+</ul>
 
-<nav id="bd-toc-nav">
-    <ul class="nav section-nav flex-column">
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#option-getting-current-solution-to-work" class="nav-link">Option: Getting Current Solution to Work</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#option-book" class="nav-link">Option: Book</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#option-domain-based-approach" class="nav-link">Option: Domain Based Approach</a>
-        </li>
-    
-    </ul>
-</nav>
-
-
+        </nav>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -229,7 +247,7 @@ relating it back to HTML in as flexible a way as possible.</p>
 </div>
 <p>if we introduced a named item (i.e. <code class="docutils literal notranslate"><span class="pre">front</span></code>, <code class="docutils literal notranslate"><span class="pre">start</span></code>) for the first <code class="docutils literal notranslate"><span class="pre">element</span></code> we could know if
 frontmatter exists or not. If it does <strong>not</strong> exist then we can assume all documents are chapters
-are there is no frontmatter.</p>
+as there is no frontmatter.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Front Matter (optional)</span>
 <span class="p p-Indicator">-</span> <span class="nt">front</span><span class="p">:</span> 
   <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">preface</span>
@@ -248,6 +266,8 @@ are there is no frontmatter.</p>
 </pre></div>
 </div>
 <p>we could also introduce optional markers for <code class="docutils literal notranslate"><span class="pre">abstract</span></code> and <code class="docutils literal notranslate"><span class="pre">backmatter</span></code></p>
+<p>for <code class="docutils literal notranslate"><span class="pre">html</span></code> perhaps we should write an inliner for <code class="docutils literal notranslate"><span class="pre">toctree</span></code> to get the numbering correct.
+A single <code class="docutils literal notranslate"><span class="pre">toc</span></code> could aslo be a useful way to generate  <code class="docutils literal notranslate"><span class="pre">sitemap.xml</span></code>.</p>
 </div>
 <div class="section" id="option-book">
 <h2>Option: Book<a class="headerlink" href="#option-book" title="Permalink to this headline">¶</a></h2>
@@ -275,28 +295,6 @@ which is contained in <code class="docutils literal notranslate"><span class="pr
 </pre></div>
 </div>
 <p>This would maps directly onto <code class="docutils literal notranslate"><span class="pre">LaTeX</span></code> structures for the <code class="docutils literal notranslate"><span class="pre">book</span></code> class.</p>
-</div>
-<div class="section" id="option-domain-based-approach">
-<h2>Option: Domain Based Approach<a class="headerlink" href="#option-domain-based-approach" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">html</span><span class="p">:</span>
-
-<span class="nt">pdf</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">myintro</span>
-    <span class="nt">numbered</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-
-    <span class="p p-Indicator">-</span> <span class="nt">part</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Get started</span>
-    <span class="nt">chapters</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">start/overview</span>
-    <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">start/build</span>
-
-    <span class="p p-Indicator">-</span> <span class="nt">part</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Reference and test pages</span>
-    <span class="nt">chapters</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">test_pages/test</span>
-        <span class="l l-Scalar l-Scalar-Plain">sections</span><span class="p p-Indicator">:</span>
-        <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">test_pages/layout_elements</span>
-        <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">test_pages/equations</span>
-</pre></div>
-</div>
 </div>
 </div>
 

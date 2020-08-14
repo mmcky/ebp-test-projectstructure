@@ -43,7 +43,7 @@ Proposed
 
 if we introduced a named item (i.e. `front`, `start`) for the first `element` we could know if
 frontmatter exists or not. If it does **not** exist then we can assume all documents are chapters
-are there is no frontmatter.
+as there is no frontmatter.
 
 ```yaml
 # Front Matter (optional)
@@ -64,6 +64,9 @@ are there is no frontmatter.
 ```
 
 we could also introduce optional markers for `abstract` and `backmatter`
+
+for `html` perhaps we should write an inliner for `toctree` to get the numbering correct.
+A single `toc` could aslo be a useful way to generate  `sitemap.xml`.
 
 ## Option: Book
 
@@ -93,26 +96,3 @@ back:
 ```
 
 This would maps directly onto `LaTeX` structures for the `book` class.
-
-## Option: Domain Based Approach
-
-```yaml
-html:
-
-pdf:
-    - file: myintro
-    numbered: true
-
-    - part: Get started
-    chapters:
-    - file: start/overview
-    - file: start/build
-
-    - part: Reference and test pages
-    chapters:
-    - file: test_pages/test
-        sections:
-        - file: test_pages/layout_elements
-        - file: test_pages/equations
-
-```
