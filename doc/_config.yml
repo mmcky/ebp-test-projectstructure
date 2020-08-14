@@ -1,0 +1,8 @@
+# Book settings
+title: Comparison of Global Project Configuration
+author: EBP Developer Team
+logo: logo.png
+
+latex:
+  latex_documents:
+    targetname: book.tex
