@@ -65,6 +65,9 @@ as there is no frontmatter.
 
 we could also introduce optional markers for `abstract` and `backmatter`
 
+for `html` perhaps we should write an inliner for `toctree` to get the numbering correct.
+In a way a single `toc` would be a `sitetree`.
+
 ## Option: Book
 
 The `toc` is focused on content rather than front page of book 
