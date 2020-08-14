@@ -66,7 +66,7 @@ as there is no frontmatter.
 we could also introduce optional markers for `abstract` and `backmatter`
 
 for `html` perhaps we should write an inliner for `toctree` to get the numbering correct.
-In a way a single `toc` would be a `sitetree`.
+A single `toc` could aslo be a useful way to generate  `sitemap.xml`.
 
 ## Option: Book
 
