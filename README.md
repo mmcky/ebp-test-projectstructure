@@ -2,6 +2,8 @@
 
 A testing ground to explore jupyter-book project structures for `toc` and the matching of `html` and `latex` outputs.
 
+A more detailed discussion document is found [here](https://mmcky.github.io/ebp-test-projectstructure/intro.html)
+
 ## Configurations
 
 The top level config relates to the primary entry points for
