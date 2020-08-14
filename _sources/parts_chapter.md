@@ -12,10 +12,8 @@ the parts)
 
 **General Issues:**
 
-- [ ] [HTML] Section numbers are reset for each `part` in `html`
-- [ ] [LATEX] All chapters are contained in `Part 1`
-
-Parts are not included in the `LaTeX` structure
+- HTML Section numbers are reset for each `part` in `html`
+- All chapters are contained in `Part 1` and parts don't feature in `latex`
 
 ## jupyterbook
 

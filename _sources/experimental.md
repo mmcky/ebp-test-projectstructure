@@ -25,3 +25,14 @@ chapter1
 chapter2
 ```
 ````
+
+the `xml`
+
+```xml
+<document source="/Users/matthewmckay/repos-collab/ebp-toc-testproject/experimental/sphinx/index.md">
+    <section ids="title-of-project" names="title\ of\ project">
+        <title>
+            Title of Project
+        <compound classes="toctree-wrapper">
+            <toctree caption="True" entries="(None,\ 'chapter1') (None,\ 'chapter2')" glob="False" hidden="False" includefiles="chapter1 chapter2" includehidden="False" maxdepth="-1" numbered="999" parent="index" rawentries="" titlesonly="False">
+```
