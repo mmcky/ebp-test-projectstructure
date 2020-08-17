@@ -49,19 +49,21 @@ frontmatter exists or not. If it does **not** exist then we can assume all docum
 as there is no frontmatter.
 
 ```yaml
-# Front Matter (optional)
+# [optional] Front Matter 
 - front:
   - file: preface
   - file: intro
-# Main Matter Listing (Required)
+# [required] Main Matter (Current Implementation 
+# but main file is a generated index file and first file
+# is a standard chapter / document equivalent to other files)
 - file: chapter1
 - part: A Group of Chapters
   chapter:
     - file: chapter2
-# abstract (optional)
+# [optional] Abstracts
 - abstract: Abstract Group
   - file: abstract1
-# Back Matter (optional)
+# [optional] Back Matter
 - back:
   - file: bibliography
 ```

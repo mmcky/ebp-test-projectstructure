@@ -2,6 +2,8 @@
 
 The `file` listing approach in `_toc.yml`
 
+This is parsed as a flat `list` in [jupyter-book code](https://github.com/executablebooks/jupyter-book/blob/master/jupyter_book/toc.py) and appended at the end of the first file in the list. The first file in the list is treated as an `index` or `master_doc`.
+
 ## jupyterbook
 
 The following `_toc.yml` produces:
