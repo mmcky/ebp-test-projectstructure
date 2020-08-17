@@ -59,13 +59,14 @@ The [sphinx](https://github.com/mmcky/ebp-test-projectstructure/tree/master/sphi
 
 ```{note}
 
-  This sphinx example doesn't treat `parts` correctly in latex either:
+This sphinx example doesn't treat `parts` correctly in latex either:
 
-  ```latex
-  \chapter{Part 1}
-  \label{\detokenize{part1:part-1}}\label{\detokenize{part1::doc}}
-  This is Part 1
-  ```
+```latex
+\chapter{Part 1}
+\label{\detokenize{part1:part-1}}\label{\detokenize{part1::doc}}
+This is Part 1
+```
+
 ```
 
 ## bookpattern
