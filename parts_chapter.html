@@ -202,16 +202,13 @@
 <p>The <code class="docutils literal notranslate"><span class="pre">parts</span> <span class="pre">&amp;</span> <span class="pre">chapters</span></code> listing approach in <code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code></p>
 <div class="section" id="general-comments">
 <h2>General Comments<a class="headerlink" href="#general-comments" title="Permalink to this headline">¶</a></h2>
-<p>This structure works pretty well when specifying books. The only issue is on the <code class="docutils literal notranslate"><span class="pre">html</span></code> side
-and numbering is restarted in each <code class="docutils literal notranslate"><span class="pre">part</span></code> as there are two separate <code class="docutils literal notranslate"><span class="pre">toctree</span></code> entries into
-the Sphinx AST. As section numbering is handeled by LaTeX in the <code class="docutils literal notranslate"><span class="pre">TeX</span></code> side the numbering
-with this approach is fine for the <code class="docutils literal notranslate"><span class="pre">bookpattern</span></code> to be used (i.e. continuous chapters through
-the parts)</p>
+<p>This structure works pretty well when specifying books. The main issues are:</p>
 <p><strong>General Issues:</strong></p>
-<ul class="simple">
-<li><p>HTML Section numbers are reset for each <code class="docutils literal notranslate"><span class="pre">part</span></code> in <code class="docutils literal notranslate"><span class="pre">html</span></code></p></li>
-<li><p>All chapters are contained in <code class="docutils literal notranslate"><span class="pre">Part</span> <span class="pre">1</span></code> and parts don’t feature in <code class="docutils literal notranslate"><span class="pre">latex</span></code></p></li>
-</ul>
+<ol class="simple">
+<li><p>on the <code class="docutils literal notranslate"><span class="pre">html</span></code> side numbering is restarted in each <code class="docutils literal notranslate"><span class="pre">part</span></code> as there are two separate <code class="docutils literal notranslate"><span class="pre">toctree</span></code> entries into
+the Sphinx AST.</p></li>
+<li><p>on the <code class="docutils literal notranslate"><span class="pre">latex</span></code> side Parts are ignored entirely but Chapter numbers are correct.</p></li>
+</ol>
 </div>
 <div class="section" id="jupyterbook">
 <h2>jupyterbook<a class="headerlink" href="#jupyterbook" title="Permalink to this headline">¶</a></h2>
@@ -249,6 +246,7 @@ the parts)</p>
 </div>
 <div class="section" id="bookpattern">
 <h2>bookpattern<a class="headerlink" href="#bookpattern" title="Permalink to this headline">¶</a></h2>
+<p>Most books would like <code class="docutils literal notranslate"><span class="pre">chapters</span></code> to be continuously numbered through <code class="docutils literal notranslate"><span class="pre">parts</span></code> structure</p>
 <p>The following <code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code> produces:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">intro</span>
   <span class="nt">numbered</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>

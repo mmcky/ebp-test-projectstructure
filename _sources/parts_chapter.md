@@ -4,16 +4,13 @@ The `parts & chapters` listing approach in `_toc.yml`
 
 ## General Comments
 
-This structure works pretty well when specifying books. The only issue is on the `html` side
-and numbering is restarted in each `part` as there are two separate `toctree` entries into
-the Sphinx AST. As section numbering is handeled by LaTeX in the `TeX` side the numbering
-with this approach is fine for the `bookpattern` to be used (i.e. continuous chapters through
-the parts)
+This structure works pretty well when specifying books. The main issues are:
 
 **General Issues:**
 
-- HTML Section numbers are reset for each `part` in `html`
-- All chapters are contained in `Part 1` and parts don't feature in `latex`
+1.  on the `html` side numbering is restarted in each `part` as there are two separate `toctree` entries into
+the Sphinx AST.
+1. on the `latex` side Parts are ignored entirely but Chapter numbers are correct.
 
 ## jupyterbook
 
@@ -54,6 +51,8 @@ produces [html](https://htmlpreview.github.io/?https://github.com/mmcky/ebp-test
 ```
 
 ## bookpattern
+
+Most books would like `chapters` to be continuously numbered through `parts` structure
 
 The following `_toc.yml` produces:
 
