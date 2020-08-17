@@ -172,13 +172,18 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#option-getting-current-solution-to-work">
-   Option: Getting Current Solution to Work
+  <a class="reference internal nav-link" href="#option-1-category-approach">
+   Option 1: Category Approach
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#option-book">
-   Option: Book
+  <a class="reference internal nav-link" href="#option-2-add-an-attribute">
+   Option 2: Add an Attribute
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#option-3-domain-based-context-for-toc-yml">
+   Option 3: Domain based Context for toc.yml
   </a>
  </li>
 </ul>
@@ -197,9 +202,12 @@
 <p>This contains a proposal for <code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code>. Given <code class="docutils literal notranslate"><span class="pre">LaTeX</span></code> is the more restrictive
 medium – this approach is based on support LaTeX in the _toc.yml structure and
 relating it back to HTML in as flexible a way as possible.</p>
-<div class="section" id="option-getting-current-solution-to-work">
-<h2>Option: Getting Current Solution to Work<a class="headerlink" href="#option-getting-current-solution-to-work" title="Permalink to this headline">¶</a></h2>
-<p>To get knowledge of <code class="docutils literal notranslate"><span class="pre">frontmatter</span></code> demarcation:</p>
+<div class="section" id="option-1-category-approach">
+<h2>Option 1: Category Approach<a class="headerlink" href="#option-1-category-approach" title="Permalink to this headline">¶</a></h2>
+<p>An alternative would be to use a list approach that would
+enable multiple files to be classified as <code class="docutils literal notranslate"><span class="pre">frontmatter</span></code>.
+This could be useful when building books with <code class="docutils literal notranslate"><span class="pre">Preface</span></code> and
+secondary <code class="docutils literal notranslate"><span class="pre">frontmatter</span></code> sections.</p>
 <div class="sphinx-bs container pb-4 docutils">
 <div class="row docutils">
 <div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
@@ -212,11 +220,11 @@ relating it back to HTML in as flexible a way as possible.</p>
 
 <span class="p p-Indicator">-</span> <span class="nt">part</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">My first part</span>
   <span class="nt">chapters</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">part1_firstchapter</span>
-  <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">part1_secondchapter</span>
+  <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">part1_chapter1</span>
+  <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">part1_chapter2</span>
 <span class="p p-Indicator">-</span> <span class="nt">part</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">My second part</span>
   <span class="nt">chapters</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">part2_firstchapter</span>
+  <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">part2_chapter1</span>
 </pre></div>
 </div>
 </div>
@@ -233,11 +241,11 @@ relating it back to HTML in as flexible a way as possible.</p>
 
 <span class="p p-Indicator">-</span> <span class="nt">part</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">My first part</span>
   <span class="nt">chapters</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">part1_firstchapter</span>
-  <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">part1_secondchapter</span>
+  <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">part1_chapter1</span>
+  <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">part1_chapter2</span>
 <span class="p p-Indicator">-</span> <span class="nt">part</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">My second part</span>
   <span class="nt">chapters</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">part2_firstchapter</span>
+  <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">part2_chapter1</span>
 </pre></div>
 </div>
 </div>
@@ -249,7 +257,7 @@ relating it back to HTML in as flexible a way as possible.</p>
 frontmatter exists or not. If it does <strong>not</strong> exist then we can assume all documents are chapters
 as there is no frontmatter.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Front Matter (optional)</span>
-<span class="p p-Indicator">-</span> <span class="nt">front</span><span class="p">:</span> 
+<span class="p p-Indicator">-</span> <span class="nt">front</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">preface</span>
   <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">intro</span>
 <span class="c1"># Main Matter Listing (Required)</span>
@@ -262,15 +270,56 @@ as there is no frontmatter.</p>
   <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">abstract1</span>
 <span class="c1"># Back Matter (optional)</span>
 <span class="p p-Indicator">-</span> <span class="nt">back</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> 
+  <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bibliography</span>
 </pre></div>
 </div>
 <p>we could also introduce optional markers for <code class="docutils literal notranslate"><span class="pre">abstract</span></code> and <code class="docutils literal notranslate"><span class="pre">backmatter</span></code></p>
 <p>for <code class="docutils literal notranslate"><span class="pre">html</span></code> perhaps we should write an inliner for <code class="docutils literal notranslate"><span class="pre">toctree</span></code> to get the numbering correct.
 A single <code class="docutils literal notranslate"><span class="pre">toc</span></code> could aslo be a useful way to generate  <code class="docutils literal notranslate"><span class="pre">sitemap.xml</span></code>.</p>
 </div>
-<div class="section" id="option-book">
-<h2>Option: Book<a class="headerlink" href="#option-book" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="option-2-add-an-attribute">
+<h2>Option 2: Add an Attribute<a class="headerlink" href="#option-2-add-an-attribute" title="Permalink to this headline">¶</a></h2>
+<p>The current solution requires users to know there is a different between the first
+<code class="docutils literal notranslate"><span class="pre">file</span></code> and remaining files in terms of how <code class="docutils literal notranslate"><span class="pre">sphinx</span></code> treats it internally.</p>
+<p>We could add a <code class="docutils literal notranslate"><span class="pre">frontmatter</span></code> attribute requirement for the first <code class="docutils literal notranslate"><span class="pre">file</span></code> to be
+treated as it is currently by default (as <code class="docutils literal notranslate"><span class="pre">frontmatter</span></code>)</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Current</p>
+</div>
+<div class="card-body docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">myintro</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">firstchapter</span>
+<span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">secondchapter</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Proposed</p>
+</div>
+<div class="card-body docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">myintro</span>
+    <span class="l l-Scalar l-Scalar-Plain">frontmatter</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">firstchapter</span>
+<span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">secondchapter</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="option-3-domain-based-context-for-toc-yml">
+<h2>Option 3: Domain based Context for toc.yml<a class="headerlink" href="#option-3-domain-based-context-for-toc-yml" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">toc</span></code> is focused on content rather than front page of book
 which is contained in <code class="docutils literal notranslate"><span class="pre">_config.yml</span></code>. A useful reference for
 <a class="reference external" href="https://en.wikibooks.org/wiki/LaTeX/Document_Structure#Book_structure">latex book structure</a></p>

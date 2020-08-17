@@ -6,9 +6,12 @@ This contains a proposal for `_toc.yml`. Given `LaTeX` is the more restrictive
 medium -- this approach is based on support LaTeX in the _toc.yml structure and
 relating it back to HTML in as flexible a way as possible.
 
-## Option: Getting Current Solution to Work
+## Option 1: Category Approach
 
-To get knowledge of `frontmatter` demarcation:
+An alternative would be to use a list approach that would
+enable multiple files to be classified as `frontmatter`.
+This could be useful when building books with `Preface` and
+secondary `frontmatter` sections.
 
 ````{panels}
 Current
@@ -18,11 +21,11 @@ Current
 
 - part: My first part
   chapters:
-  - file: part1_firstchapter
-  - file: part1_secondchapter
+  - file: part1_chapter1
+  - file: part1_chapter2
 - part: My second part
   chapters:
-  - file: part2_firstchapter
+  - file: part2_chapter1
 ```
 ---
 Proposed
@@ -33,11 +36,11 @@ Proposed
 
 - part: My first part
   chapters:
-  - file: part1_firstchapter
-  - file: part1_secondchapter
+  - file: part1_chapter1
+  - file: part1_chapter2
 - part: My second part
   chapters:
-  - file: part2_firstchapter
+  - file: part2_chapter1
 ```
 ````
 
@@ -47,7 +50,7 @@ as there is no frontmatter.
 
 ```yaml
 # Front Matter (optional)
-- front: 
+- front:
   - file: preface
   - file: intro
 # Main Matter Listing (Required)
@@ -60,7 +63,7 @@ as there is no frontmatter.
   - file: abstract1
 # Back Matter (optional)
 - back:
-  - file: 
+  - file: bibliography
 ```
 
 we could also introduce optional markers for `abstract` and `backmatter`
@@ -68,7 +71,35 @@ we could also introduce optional markers for `abstract` and `backmatter`
 for `html` perhaps we should write an inliner for `toctree` to get the numbering correct.
 A single `toc` could aslo be a useful way to generate  `sitemap.xml`.
 
-## Option: Book
+## Option 2: Add an Attribute
+
+The current solution requires users to know there is a different between the first
+`file` and remaining files in terms of how `sphinx` treats it internally.
+
+We could add a `frontmatter` attribute requirement for the first `file` to be 
+treated as it is currently by default (as `frontmatter`)
+
+````{panels}
+Current
+^^^^^^^
+```yaml
+- file: myintro
+
+- file: firstchapter
+- file: secondchapter
+```
+---
+Proposed
+^^^^^^^^
+```yaml
+- file: myintro
+    frontmatter: true
+- file: firstchapter
+- file: secondchapter
+```
+````
+
+## Option 3: Domain based Context for toc.yml
 
 The `toc` is focused on content rather than front page of book 
 which is contained in `_config.yml`. A useful reference for 
