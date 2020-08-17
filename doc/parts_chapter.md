@@ -50,6 +50,23 @@ produces [html](https://htmlpreview.github.io/?https://github.com/mmcky/ebp-test
             <toctree caption="part2" entries="(None,\ 'part2/chapter1')" glob="False" hidden="True" includefiles="part2/chapter1" includehidden="False" maxdepth="-1" numbered="999" parent="intro" rawcaption="part2" rawentries="" titlesonly="True">
 ```
 
+**Solutions:**
+
+The current approach to building the `toc` elements in the `sphinx.ast` could to be updated to
+be similar to how sphinx represents toctree elements using hierarchical toctree's. 
+
+The [sphinx](https://github.com/mmcky/ebp-test-projectstructure/tree/master/sphinx) folder shows how `parts` and chapters can be structured and needs to be explored further.
+
+```{note}
+
+  This sphinx example doesn't treat `parts` correctly in latex either:
+
+  ```latex
+  \chapter{Part 1}
+  \label{\detokenize{part1:part-1}}\label{\detokenize{part1::doc}}
+  This is Part 1
+  ```
+
 ## bookpattern
 
 Most books would like `chapters` to be continuously numbered through `parts` structure
