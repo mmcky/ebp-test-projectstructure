@@ -93,7 +93,7 @@ Proposed
 ^^^^^^^^
 ```yaml
 - file: myintro
-    frontmatter: true
+  frontmatter: true
 - file: firstchapter
 - file: secondchapter
 ```
