@@ -182,11 +182,6 @@
    jupyterbook
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bookpattern">
-   bookpattern
-  </a>
- </li>
 </ul>
 
         </nav>
@@ -256,25 +251,28 @@ This is Part 1
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="bookpattern">
-<h2>bookpattern<a class="headerlink" href="#bookpattern" title="Permalink to this headline">¶</a></h2>
-<p>Most books would like <code class="docutils literal notranslate"><span class="pre">chapters</span></code> to be continuously numbered through <code class="docutils literal notranslate"><span class="pre">parts</span></code> structure</p>
-<p>The following <code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code> produces:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">intro</span>
-  <span class="nt">numbered</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+## bookpattern
 
-<span class="p p-Indicator">-</span> <span class="nt">part</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">part1</span>
-  <span class="nt">chapters</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">part1/chapter1</span>
-  <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">part1/chapter2</span>
+Most books would like `chapters` to be continuously numbered through `parts` structure
 
-<span class="p p-Indicator">-</span> <span class="nt">part</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">part2</span>
-  <span class="nt">chapters</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">part2/chapter3</span>
-    <span class="nt">sections</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">part2/chapter3-section1</span>
-      <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">part2/chapter3-section2</span>
+The following `_toc.yml` produces:
+
+```yaml
+- file: intro
+  numbered: true
+
+- part: part1
+  chapters:
+  - file: part1/chapter1
+  - file: part1/chapter2
+
+- part: part2
+  chapters:
+  - file: part2/chapter3
+    sections:
+      - file: part2/chapter3-section1
+      - file: part2/chapter3-section2
 </pre></div>
 </div>
 <p>with <a class="reference external" href="https://htmlpreview.github.io/?https://github.com/mmcky/ebp-test-projectstructure/blob/master/parts_chapters/bookpattern/_build/html/intro.html">html</a> and <a class="reference external" href="https://github.com/mmcky/ebp-test-projectstructure/blob/master/parts_chapters/bookpattern/_build/latex/book.pdf">pdf</a>.</p>
