@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.11.4)  17 AUG 2020 14:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.11.4)  17 AUG 2020 15:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -834,8 +834,10 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 87.
 
 (./partschapterssphinx.toc
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 2.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 4.
 )
 \tf@toc=\write6
 \openout6 = `partschapterssphinx.toc'.
@@ -845,53 +847,64 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
 ] [2
 
 ]
-Chapter 1.
-[1
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <20.74> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 93.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 93.
+ [1
 
-] [2
+] [2] [3] [4
+
+] [5] [6] [7] [8
+
+]
+Chapter 1.
+[9] [10
 
 ]
 Chapter 2.
-[3] [4
+[11] [12
+
+] [13] [14] [15] [16
 
 ]
 Chapter 3.
-[5] [6
+[17] [18
 
-]
-Chapter 4.
+] [19] [20]
 LaTeX Font Info:    Try loading font information for TS1+ptm on input line 125.
+
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
 (./partschapterssphinx.ind)
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 140.
- [7]
+ [21]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 140.
  (./partschapterssphinx.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 140.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 140.
 Package rerunfilecheck Info: File `partschapterssphinx.out' has not changed.
-(rerunfilecheck)             Checksum: 21FBDE849FFD519D43A1D9231151B503;665.
+(rerunfilecheck)             Checksum: 65DD3517549B930C08BB4AFD008DC31E;714.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 140.
  ) 
 Here is how much of TeX's memory you used:
- 13309 strings out of 492623
- 187094 string characters out of 6129537
- 280439 words of memory out of 5000000
- 16929 multiletter control sequences out of 15000+600000
- 37190 words of font info for 55 fonts, out of 8000000 for 9000
+ 13317 strings out of 492623
+ 187097 string characters out of 6129537
+ 280408 words of memory out of 5000000
+ 16928 multiletter control sequences out of 15000+600000
+ 47596 words of font info for 57 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
  37i,11n,45p,291b,392s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2019/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/
 2019/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2019/texmf
 -dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on partschapterssphinx.pdf (11 pages, 42066 bytes).
+Output written on partschapterssphinx.pdf (25 pages, 45911 bytes).
 PDF statistics:
- 113 PDF objects out of 1000 (max. 8388607)
- 91 compressed objects within 1 object stream
- 19 named destinations out of 1000 (max. 500000)
+ 175 PDF objects out of 1000 (max. 8388607)
+ 138 compressed objects within 2 object streams
+ 33 named destinations out of 1000 (max. 500000)
  77 words of extra memory for PDF output out of 10000 (max. 10000000)
 
