@@ -6,11 +6,11 @@ This contains a proposal for `_toc.yml`. Given `LaTeX` is the more restrictive
 medium -- this approach is based on support LaTeX in the _toc.yml structure and
 relating it back to HTML in as flexible a way as possible.
 
-## Option 1: Category Approach
+## Option 1: Introduce Categories
 
-An alternative would be to use a list approach that would
+Use a list approach that would
 enable multiple files to be classified as `frontmatter`.
-This could be useful when building books with `Preface` and
+This could be useful when building books with `preface` and
 secondary `frontmatter` sections.
 
 ````{panels}
@@ -44,13 +44,14 @@ Proposed
 ```
 ````
 
-if we introduced a named item (i.e. `front`, `start`) for the first `element` we could know if
-frontmatter exists or not. If it does **not** exist then we can assume all documents are chapters
-as there is no frontmatter.
+Alternatively, we could introduce **optional** named sections in the `yml` such as `frontmatter`, `abstract`, `backmatter`). This
+could extend the current `toctree` directive to include wrappers
+for different content types for neater alignment with `LaTeX` and
+`html` themes built to support `book` style qualities.
 
 ```yaml
 # [optional] Front Matter
-- front:
+frontmatter:
   - file: preface
   - file: intro
 # [required] Main Matter (Current Implementation
@@ -61,17 +62,49 @@ as there is no frontmatter.
   chapter:
     - file: chapter2
 # [optional] Abstracts
-- abstract: Abstract Group
+abstract: Abstract Group
   - file: abstract1
 # [optional] Back Matter
-- back:
+backmatter:
   - file: bibliography
 ```
 
-we could also introduce optional markers for `abstract` and `backmatter`
+**Implementation Ideas:**
 
-for `html` perhaps we should write an inliner for `toctree` to get the numbering correct.
-A single `toc` could aslo be a useful way to generate  `sitemap.xml`.
+This could be organised by an updated
+sphinx `toctree` that wraps documents inside the
+appropriate nodes in the AST.
+
+```rst
+.. toctree::
+   :frontmatter:
+
+   preface
+   intro
+```
+
+with the standard chapters being contained in a separate toc
+
+```rst
+.. toctree::
+   :numbered:
+
+   chapter1
+   part1
+```
+
+and part1 document would contain section `toc`:
+
+```rst
+.. toctree::
+
+   chapter2
+```
+
+If we were able to add `frontmatter`, `abstract`, `backmatter` nodes into the `AST` this would faciliate more flexibility in structuring
+numbering behaviour based on context.
+
+For `html` perhaps we should write an inliner for `toctree` to get the numbering correct. A single `toc` may aslo be a useful way to generate  `sitemap.xml`?
 
 ## Option 2: Add an Attribute
 
