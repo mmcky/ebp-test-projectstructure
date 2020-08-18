@@ -1,5 +1,13 @@
 - file: intro
-- file: file
-- file: parts_chapter
-- file: experimental
-- file: proposal
+- part: JupyterBook
+  chapters:
+  - file: file
+  - file: parts_chapter
+  - file: experimental
+- part: Sphinx
+  chapters:
+  - file: sphinx
+- part: Proposals
+  chapters:
+  - file: proposal
+  - file: alternative
