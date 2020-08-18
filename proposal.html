@@ -172,8 +172,8 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#option-1-category-approach">
-   Option 1: Category Approach
+  <a class="reference internal nav-link" href="#option-1-introduce-categories">
+   Option 1: Introduce Categories
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -202,11 +202,11 @@
 <p>This contains a proposal for <code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code>. Given <code class="docutils literal notranslate"><span class="pre">LaTeX</span></code> is the more restrictive
 medium – this approach is based on support LaTeX in the _toc.yml structure and
 relating it back to HTML in as flexible a way as possible.</p>
-<div class="section" id="option-1-category-approach">
-<h2>Option 1: Category Approach<a class="headerlink" href="#option-1-category-approach" title="Permalink to this headline">¶</a></h2>
-<p>An alternative would be to use a list approach that would
+<div class="section" id="option-1-introduce-categories">
+<h2>Option 1: Introduce Categories<a class="headerlink" href="#option-1-introduce-categories" title="Permalink to this headline">¶</a></h2>
+<p>Use a list approach that would
 enable multiple files to be classified as <code class="docutils literal notranslate"><span class="pre">frontmatter</span></code>.
-This could be useful when building books with <code class="docutils literal notranslate"><span class="pre">Preface</span></code> and
+This could be useful when building books with <code class="docutils literal notranslate"><span class="pre">preface</span></code> and
 secondary <code class="docutils literal notranslate"><span class="pre">frontmatter</span></code> sections.</p>
 <div class="sphinx-bs container pb-4 docutils">
 <div class="row docutils">
@@ -253,11 +253,12 @@ secondary <code class="docutils literal notranslate"><span class="pre">frontmatt
 </div>
 </div>
 </div>
-<p>if we introduced a named item (i.e. <code class="docutils literal notranslate"><span class="pre">front</span></code>, <code class="docutils literal notranslate"><span class="pre">start</span></code>) for the first <code class="docutils literal notranslate"><span class="pre">element</span></code> we could know if
-frontmatter exists or not. If it does <strong>not</strong> exist then we can assume all documents are chapters
-as there is no frontmatter.</p>
+<p>Alternatively, we could introduce <strong>optional</strong> named sections in the <code class="docutils literal notranslate"><span class="pre">yml</span></code> such as <code class="docutils literal notranslate"><span class="pre">frontmatter</span></code>, <code class="docutils literal notranslate"><span class="pre">abstract</span></code>, <code class="docutils literal notranslate"><span class="pre">backmatter</span></code>). This
+could extend the current <code class="docutils literal notranslate"><span class="pre">toctree</span></code> directive to include wrappers
+for different content types for neater alignment with <code class="docutils literal notranslate"><span class="pre">LaTeX</span></code> and
+<code class="docutils literal notranslate"><span class="pre">html</span></code> themes built to support <code class="docutils literal notranslate"><span class="pre">book</span></code> style qualities.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># [optional] Front Matter</span>
-<span class="p p-Indicator">-</span> <span class="nt">front</span><span class="p">:</span>
+<span class="nt">frontmatter</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">preface</span>
   <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">intro</span>
 <span class="c1"># [required] Main Matter (Current Implementation</span>
@@ -268,16 +269,41 @@ as there is no frontmatter.</p>
   <span class="nt">chapter</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chapter2</span>
 <span class="c1"># [optional] Abstracts</span>
-<span class="p p-Indicator">-</span> <span class="nt">abstract</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Abstract Group</span>
-  <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">abstract1</span>
+<span class="nt">abstract</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Abstract Group</span>
+  <span class="l l-Scalar l-Scalar-Plain">- file</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">abstract1</span>
 <span class="c1"># [optional] Back Matter</span>
-<span class="p p-Indicator">-</span> <span class="nt">back</span><span class="p">:</span>
+<span class="nt">backmatter</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bibliography</span>
 </pre></div>
 </div>
-<p>we could also introduce optional markers for <code class="docutils literal notranslate"><span class="pre">abstract</span></code> and <code class="docutils literal notranslate"><span class="pre">backmatter</span></code></p>
-<p>for <code class="docutils literal notranslate"><span class="pre">html</span></code> perhaps we should write an inliner for <code class="docutils literal notranslate"><span class="pre">toctree</span></code> to get the numbering correct.
-A single <code class="docutils literal notranslate"><span class="pre">toc</span></code> could aslo be a useful way to generate  <code class="docutils literal notranslate"><span class="pre">sitemap.xml</span></code>.</p>
+<p><strong>Implementation Ideas:</strong></p>
+<p>This could be organised by an updated
+sphinx <code class="docutils literal notranslate"><span class="pre">toctree</span></code> that wraps documents inside the
+appropriate nodes in the AST.</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">toctree</span><span class="p">::</span>
+   <span class="nc">:frontmatter:</span>
+
+   preface
+   intro
+</pre></div>
+</div>
+<p>with the standard chapters being contained in a separate toc</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">toctree</span><span class="p">::</span>
+   <span class="nc">:numbered:</span>
+
+   chapter1
+   part1
+</pre></div>
+</div>
+<p>and part1 document would contain section <code class="docutils literal notranslate"><span class="pre">toc</span></code>:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">toctree</span><span class="p">::</span>
+
+   chapter2
+</pre></div>
+</div>
+<p>If we were able to add <code class="docutils literal notranslate"><span class="pre">frontmatter</span></code>, <code class="docutils literal notranslate"><span class="pre">abstract</span></code>, <code class="docutils literal notranslate"><span class="pre">backmatter</span></code> nodes into the <code class="docutils literal notranslate"><span class="pre">AST</span></code> this would faciliate more flexibility in structuring
+numbering behaviour based on context.</p>
+<p>For <code class="docutils literal notranslate"><span class="pre">html</span></code> perhaps we should write an inliner for <code class="docutils literal notranslate"><span class="pre">toctree</span></code> to get the numbering correct. A single <code class="docutils literal notranslate"><span class="pre">toc</span></code> may aslo be a useful way to generate  <code class="docutils literal notranslate"><span class="pre">sitemap.xml</span></code>?</p>
 </div>
 <div class="section" id="option-2-add-an-attribute">
 <h2>Option 2: Add an Attribute<a class="headerlink" href="#option-2-add-an-attribute" title="Permalink to this headline">¶</a></h2>
