@@ -205,6 +205,34 @@
   <a class="reference internal nav-link" href="#introduce-categories">
    Introduce Categories
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implementation-ideas">
+     Implementation Ideas:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#alternative-options">
+   Alternative Options
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sphinx-toctree-resources">
+   Sphinx
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     toctree
+    </span>
+   </code>
+   Resources:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-ideas">
+   Other Ideas:
+  </a>
  </li>
 </ul>
 
@@ -224,6 +252,84 @@ medium – this approach is based on support LaTeX in the _toc.yml structure and
 relating it back to HTML in as flexible a way as possible.</p>
 <div class="section" id="introduce-categories">
 <h2>Introduce Categories<a class="headerlink" href="#introduce-categories" title="Permalink to this headline">¶</a></h2>
+<p>Introduce <strong>optional</strong> named sections in the <code class="docutils literal notranslate"><span class="pre">yml</span></code> such as <code class="docutils literal notranslate"><span class="pre">frontmatter</span></code>, <code class="docutils literal notranslate"><span class="pre">abstract</span></code>, <code class="docutils literal notranslate"><span class="pre">backmatter</span></code>). This
+could extend the current <code class="docutils literal notranslate"><span class="pre">toctree</span></code> directive to include wrappers
+for different content types for neater alignment with <code class="docutils literal notranslate"><span class="pre">LaTeX</span></code> and
+<code class="docutils literal notranslate"><span class="pre">html</span></code> themes built to support <code class="docutils literal notranslate"><span class="pre">book</span></code> style qualities.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># [optional] Front Matter</span>
+<span class="nt">frontmatter</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">preface</span>
+  <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">intro</span>
+<span class="c1"># [required] Main Matter (Current Implementation</span>
+<span class="c1"># but main file is a generated index file and first file</span>
+<span class="c1"># is a standard chapter / document equivalent to other files)</span>
+<span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chapter1</span>
+<span class="p p-Indicator">-</span> <span class="nt">part</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">A Group of Chapters</span>
+  <span class="nt">chapter</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chapter2</span>
+<span class="c1"># [optional] Abstracts</span>
+<span class="nt">abstract</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Abstract Group</span>
+  <span class="l l-Scalar l-Scalar-Plain">- file</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">abstract1</span>
+<span class="c1"># [optional] Back Matter</span>
+<span class="nt">backmatter</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bibliography</span>
+</pre></div>
+</div>
+<div class="section" id="implementation-ideas">
+<h3>Implementation Ideas:<a class="headerlink" href="#implementation-ideas" title="Permalink to this headline">¶</a></h3>
+<p>This could be organised by an updated
+sphinx <code class="docutils literal notranslate"><span class="pre">toctree</span></code> that wraps documents inside
+appropriate document demarcation nodes:</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">frontmatter</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">backmatter</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">abstract</span></code></p></li>
+</ol>
+<p><strong>Simple Chapter Structure:</strong></p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">toctree</span><span class="p">::</span>
+   <span class="nc">:frontmatter:</span> preface
+   <span class="nc">:appendix:</span> appendixA
+
+   preface
+   chapter1
+   chapter2
+   appendixA
+</pre></div>
+</div>
+<p>would wrap the contents of the <code class="docutils literal notranslate"><span class="pre">preface</span></code> document within a <code class="docutils literal notranslate"><span class="pre">frontmatter</span></code> document node in the
+<code class="docutils literal notranslate"><span class="pre">Sphinx.AST</span></code> and <code class="docutils literal notranslate"><span class="pre">appendixA</span></code> within an <code class="docutils literal notranslate"><span class="pre">appendix</span></code> document node.</p>
+<p>This additional information in the <code class="docutils literal notranslate"><span class="pre">AST</span></code> would provide the opportunity to adjust section numbering based
+on these structural positions in a document.</p>
+<p><strong>Parts/Chapter Document Structure:</strong></p>
+<p>To implement <code class="docutils literal notranslate"><span class="pre">parts</span> <span class="pre">and</span> <span class="pre">chapter</span></code> structure would include</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">toctree</span><span class="p">::</span>
+  <span class="nc">:frontmatter:</span> preface
+  <span class="nc">:appendix:</span> appendixA
+
+  preface
+  part1
+  part2
+  appendixA
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">part1</span></code> would have its own toctree and <code class="docutils literal notranslate"><span class="pre">title</span></code> in <code class="docutils literal notranslate"><span class="pre">part1.md</span></code> document</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">toctree</span><span class="p">::</span>
+
+  chapter1
+  chapter2
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">part2</span></code> would have its own toctree and <code class="docutils literal notranslate"><span class="pre">title</span></code> in <code class="docutils literal notranslate"><span class="pre">part2.md</span></code> document</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">toctree</span><span class="p">::</span>
+
+   chapter3
+   chapter4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="alternative-options">
+<h2>Alternative Options<a class="headerlink" href="#alternative-options" title="Permalink to this headline">¶</a></h2>
 <p>Use a list approach that would
 enable multiple files to be classified as <code class="docutils literal notranslate"><span class="pre">frontmatter</span></code>.
 This could be useful when building books with <code class="docutils literal notranslate"><span class="pre">preface</span></code> and
@@ -273,56 +379,17 @@ secondary <code class="docutils literal notranslate"><span class="pre">frontmatt
 </div>
 </div>
 </div>
-<p>Alternatively, we could introduce <strong>optional</strong> named sections in the <code class="docutils literal notranslate"><span class="pre">yml</span></code> such as <code class="docutils literal notranslate"><span class="pre">frontmatter</span></code>, <code class="docutils literal notranslate"><span class="pre">abstract</span></code>, <code class="docutils literal notranslate"><span class="pre">backmatter</span></code>). This
-could extend the current <code class="docutils literal notranslate"><span class="pre">toctree</span></code> directive to include wrappers
-for different content types for neater alignment with <code class="docutils literal notranslate"><span class="pre">LaTeX</span></code> and
-<code class="docutils literal notranslate"><span class="pre">html</span></code> themes built to support <code class="docutils literal notranslate"><span class="pre">book</span></code> style qualities.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># [optional] Front Matter</span>
-<span class="nt">frontmatter</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">preface</span>
-  <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">intro</span>
-<span class="c1"># [required] Main Matter (Current Implementation</span>
-<span class="c1"># but main file is a generated index file and first file</span>
-<span class="c1"># is a standard chapter / document equivalent to other files)</span>
-<span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chapter1</span>
-<span class="p p-Indicator">-</span> <span class="nt">part</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">A Group of Chapters</span>
-  <span class="nt">chapter</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chapter2</span>
-<span class="c1"># [optional] Abstracts</span>
-<span class="nt">abstract</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Abstract Group</span>
-  <span class="l l-Scalar l-Scalar-Plain">- file</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">abstract1</span>
-<span class="c1"># [optional] Back Matter</span>
-<span class="nt">backmatter</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bibliography</span>
-</pre></div>
 </div>
-<p><strong>Implementation Ideas:</strong></p>
-<p>This could be organised by an updated
-sphinx <code class="docutils literal notranslate"><span class="pre">toctree</span></code> that wraps documents inside the
-appropriate nodes in the AST.</p>
-<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">toctree</span><span class="p">::</span>
-   <span class="nc">:frontmatter:</span>
-
-   preface
-   intro
-</pre></div>
+<div class="section" id="sphinx-toctree-resources">
+<h2>Sphinx <code class="docutils literal notranslate"><span class="pre">toctree</span></code> Resources:<a class="headerlink" href="#sphinx-toctree-resources" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p><a class="reference external" href="https://github.com/mmcky/sphinx/blob/3.x/sphinx/directives/other.py">sphinx/directives/other.py</a> contains <code class="docutils literal notranslate"><span class="pre">toctree</span></code> directive definitions</p></li>
+<li><p><a class="reference external" href="https://github.com/mmcky/sphinx/blob/3.x/sphinx/environment/collectors/toctree.py">sphinx/environment/collectors/toctree.py</a></p></li>
+<li><p><a class="reference external" href="https://github.com/mmcky/sphinx/blob/3.x/sphinx/environment/adapters/toctree.py">sphinx/environment/adaptors/toctree.py</a> contains</p></li>
+</ol>
 </div>
-<p>with the standard chapters being contained in a separate toc</p>
-<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">toctree</span><span class="p">::</span>
-   <span class="nc">:numbered:</span>
-
-   chapter1
-   part1
-</pre></div>
-</div>
-<p>and part1 document would contain section <code class="docutils literal notranslate"><span class="pre">toc</span></code>:</p>
-<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">toctree</span><span class="p">::</span>
-
-   chapter2
-</pre></div>
-</div>
-<p>If we were able to add <code class="docutils literal notranslate"><span class="pre">frontmatter</span></code>, <code class="docutils literal notranslate"><span class="pre">abstract</span></code>, <code class="docutils literal notranslate"><span class="pre">backmatter</span></code> nodes into the <code class="docutils literal notranslate"><span class="pre">AST</span></code> this would faciliate more flexibility in structuring
-numbering behaviour based on context.</p>
+<div class="section" id="other-ideas">
+<h2>Other Ideas:<a class="headerlink" href="#other-ideas" title="Permalink to this headline">¶</a></h2>
 <p>For <code class="docutils literal notranslate"><span class="pre">html</span></code> perhaps we should write an inliner for <code class="docutils literal notranslate"><span class="pre">toctree</span></code> to get the numbering correct. A single <code class="docutils literal notranslate"><span class="pre">toc</span></code> may aslo be a useful way to generate  <code class="docutils literal notranslate"><span class="pre">sitemap.xml</span></code>?</p>
 </div>
 </div>
