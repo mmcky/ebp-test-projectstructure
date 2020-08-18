@@ -3,8 +3,9 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Parts & Chapters (Sphinx)'s documentation!
-=====================================================
+=========================
+Parts & Chapters (Sphinx)
+=========================
 
 .. toctree::
    :maxdepth: 2
