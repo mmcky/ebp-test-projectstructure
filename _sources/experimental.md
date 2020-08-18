@@ -44,7 +44,7 @@ sphinx:
   - file: index
 ```
 
-```{todo}
-would need to figure out how to clear the `sphinx` warnings and recognise the
+```{note}
+TODO: would need to figure out how to clear the `sphinx` warnings and recognise the
 toctree listing in `index.md`
 ```

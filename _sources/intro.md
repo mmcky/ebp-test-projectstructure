@@ -1,4 +1,4 @@
-# `jupyter-book` Project Configuration
+# JupyterBook TOC Configuration
 
 A test repository for various `jupyter-book` project configurations.
 

@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Proposals &#8212; Comparison of Global Project Configuration</title>
+    <title>Main Proposal &#8212; Comparison of Global Project Configuration</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
@@ -40,7 +40,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Experimental" href="experimental.html" />
+    <link rel="next" title="Alternative Proposals" href="alternative.html" />
+    <link rel="prev" title="Sphinx" href="sphinx.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -76,11 +77,16 @@
   <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
-   jupyter-book Project Configuration
+   JupyterBook TOC Configuration
   </a>
  </li>
 </ul>
-<ul class="current nav sidenav_l1">
+<p class="caption">
+ <span class="caption-text">
+  JupyterBook
+ </span>
+</p>
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="file.html">
    File
@@ -96,9 +102,33 @@
    Experimental
   </a>
  </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Sphinx
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="sphinx.html">
+   Sphinx
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Proposals
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Proposals
+   Main Proposal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="alternative.html">
+   Alternative Proposals
   </a>
  </li>
 </ul>
@@ -172,18 +202,8 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#option-1-introduce-categories">
-   Option 1: Introduce Categories
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#option-2-add-an-attribute">
-   Option 2: Add an Attribute
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#option-3-domain-based-context-for-toc-yml">
-   Option 3: Domain based Context for toc.yml
+  <a class="reference internal nav-link" href="#introduce-categories">
+   Introduce Categories
   </a>
  </li>
 </ul>
@@ -196,14 +216,14 @@
         
               <div>
                 
-  <div class="section" id="proposals">
-<h1>Proposals<a class="headerlink" href="#proposals" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="main-proposal">
+<h1>Main Proposal<a class="headerlink" href="#main-proposal" title="Permalink to this headline">¶</a></h1>
 <p><strong>Work In Progress</strong></p>
 <p>This contains a proposal for <code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code>. Given <code class="docutils literal notranslate"><span class="pre">LaTeX</span></code> is the more restrictive
 medium – this approach is based on support LaTeX in the _toc.yml structure and
 relating it back to HTML in as flexible a way as possible.</p>
-<div class="section" id="option-1-introduce-categories">
-<h2>Option 1: Introduce Categories<a class="headerlink" href="#option-1-introduce-categories" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="introduce-categories">
+<h2>Introduce Categories<a class="headerlink" href="#introduce-categories" title="Permalink to this headline">¶</a></h2>
 <p>Use a list approach that would
 enable multiple files to be classified as <code class="docutils literal notranslate"><span class="pre">frontmatter</span></code>.
 This could be useful when building books with <code class="docutils literal notranslate"><span class="pre">preface</span></code> and
@@ -305,74 +325,6 @@ appropriate nodes in the AST.</p>
 numbering behaviour based on context.</p>
 <p>For <code class="docutils literal notranslate"><span class="pre">html</span></code> perhaps we should write an inliner for <code class="docutils literal notranslate"><span class="pre">toctree</span></code> to get the numbering correct. A single <code class="docutils literal notranslate"><span class="pre">toc</span></code> may aslo be a useful way to generate  <code class="docutils literal notranslate"><span class="pre">sitemap.xml</span></code>?</p>
 </div>
-<div class="section" id="option-2-add-an-attribute">
-<h2>Option 2: Add an Attribute<a class="headerlink" href="#option-2-add-an-attribute" title="Permalink to this headline">¶</a></h2>
-<p>The current solution requires users to know there is a different between the first
-<code class="docutils literal notranslate"><span class="pre">file</span></code> and remaining files in terms of how <code class="docutils literal notranslate"><span class="pre">sphinx</span></code> treats it internally.</p>
-<p>We could add a <code class="docutils literal notranslate"><span class="pre">frontmatter</span></code> attribute requirement for the first <code class="docutils literal notranslate"><span class="pre">file</span></code> to be
-treated as it is currently by default (as <code class="docutils literal notranslate"><span class="pre">frontmatter</span></code>)</p>
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Current</p>
-</div>
-<div class="card-body docutils">
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">myintro</span>
-
-<span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">firstchapter</span>
-<span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">secondchapter</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Proposed</p>
-</div>
-<div class="card-body docutils">
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">myintro</span>
-  <span class="nt">frontmatter</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">firstchapter</span>
-<span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">secondchapter</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="option-3-domain-based-context-for-toc-yml">
-<h2>Option 3: Domain based Context for toc.yml<a class="headerlink" href="#option-3-domain-based-context-for-toc-yml" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">toc</span></code> is focused on content rather than front page of book
-which is contained in <code class="docutils literal notranslate"><span class="pre">_config.yml</span></code>. A useful reference for
-<a class="reference external" href="https://en.wikibooks.org/wiki/LaTeX/Document_Structure#Book_structure">latex book structure</a></p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">book</span>
-<span class="nt">front</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">preface.md</span>
-
-<span class="nt">main</span><span class="p">:</span>
-<span class="p p-Indicator">-</span> <span class="nt">part</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">My first part</span>
-  <span class="nt">chapters</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">part1_firstchapter</span>
-  <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">part1_secondchapter</span>
-<span class="p p-Indicator">-</span> <span class="nt">part</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">My second part</span>
-  <span class="nt">chapters</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">part2_firstchapter</span>
-
-<span class="nt">appendix</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">appendixA.md</span>
-
-<span class="nt">back</span><span class="p">:</span> 
-  <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">final_note.md</span>
-</pre></div>
-</div>
-<p>This would maps directly onto <code class="docutils literal notranslate"><span class="pre">LaTeX</span></code> structures for the <code class="docutils literal notranslate"><span class="pre">book</span></code> class.</p>
-</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -403,7 +355,8 @@ which is contained in <code class="docutils literal notranslate"><span class="pr
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="experimental.html" title="previous page">Experimental</a>
+    <a class='left-prev' id="prev-link" href="sphinx.html" title="previous page">Sphinx</a>
+    <a class='right-next' id="next-link" href="alternative.html" title="next page">Alternative Proposals</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
