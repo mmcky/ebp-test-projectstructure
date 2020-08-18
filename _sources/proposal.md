@@ -35,9 +35,9 @@ backmatter:
 
 ### Implementation Ideas:
 
-This could be organised by an updated
-sphinx `toctree` that wraps documents inside
-appropriate document demarcation nodes:
+This essentially needs to be supported by `Sphinx` and could be organised by an updated
+sphinx `toctree` that wraps documents inside appropriate document nodes providing
+the contextual information needed for formatting more like traditional `book` structures:
 
 1. `frontmatter`,
 2. `backmatter`,

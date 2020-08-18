@@ -60,3 +60,6 @@ and `conf.py` contains `latex_toplevel_sectioning = "part"`
    ```
 
    have the same level for `Chapter 1` and `Chapter 2` (and `Sections`) in the output.
+
+1. The `sphinx/mixed-sphinx-jb` project allows for exploration of `toc` structures. It allows the ability to include `frontmatter` for `html` with 
+   numbering starting at the first part -- but it doesn't cater to `abstract` style number such as `A`. 
