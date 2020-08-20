@@ -113,5 +113,39 @@ A `toctree` is added to the end of the `chapter1` document which causes issues w
 ```
 
 
+## sectnum - Custom Section Numbering
 
+Docutils provides a directive that allows for the control
+of section numbering at the file level with the tradeoff
+that numbering is no longer automatic.
 
+```{note}
+The global `numbered: true` option must be switched off
+```
+
+The following `_toc.yml`:
+
+```yaml
+- file: intro
+
+- part: part1
+  chapters:
+  - file: part1/chapter1
+  - file: part1/chapter2
+
+- part: part2
+  chapters:
+  - file: part2/chapter3
+```
+
+produces [html](https://htmlpreview.github.io/?https://github.com/mmcky/ebp-test-projectstructure/blob/master/parts_chapters/sectnum/_build/html/intro.html) and [pdf](https://github.com/mmcky/ebp-test-projectstructure/blob/master/parts_chapters/sectnum/_build/latex/book.pdf).
+
+This requires the use of `sectnum` on pages you wish to
+have numbering such as in `chapter3.md`:
+
+````
+```{sectnum}
+:depth: 2
+:start: 3
+```
+````
