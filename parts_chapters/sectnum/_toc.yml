@@ -1,0 +1,10 @@
+- file: intro
+
+- part: part1
+  chapters:
+  - file: part1/chapter1
+  - file: part1/chapter2
+
+- part: part2
+  chapters:
+  - file: part2/chapter3
