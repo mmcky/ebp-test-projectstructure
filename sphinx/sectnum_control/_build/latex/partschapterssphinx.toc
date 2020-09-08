@@ -1,0 +1,12 @@
+\babel@toc {english}{}
+\contentsline {part}{I\hspace {1em}Intro}{1}{part.1}% 
+\contentsline {part}{II\hspace {1em}1\IeC {\nobreakspace }\IeC {\nobreakspace }\IeC {\nobreakspace }Part 1}{5}{part.2}% 
+\contentsline {chapter}{\numberline {1}1\IeC {\nobreakspace }\IeC {\nobreakspace }\IeC {\nobreakspace }Chapter 1}{7}{chapter.1}% 
+\contentsline {section}{\numberline {1.1}1.1\IeC {\nobreakspace }\IeC {\nobreakspace }\IeC {\nobreakspace }Chapter1,Section1}{7}{section.1.1}% 
+\contentsline {subsection}{\numberline {1.1.1}Chapter1,Section1,SubSection1}{7}{subsection.1.1.1}% 
+\contentsline {subsubsection}{Chapter1,Section1,SubSubSection1}{7}{subsubsection*.3}% 
+\contentsline {section}{\numberline {1.2}1.2\IeC {\nobreakspace }\IeC {\nobreakspace }\IeC {\nobreakspace }Chapter1,Section2}{7}{section.1.2}% 
+\contentsline {chapter}{\numberline {2}Chapter 2}{9}{chapter.2}% 
+\contentsline {part}{III\hspace {1em}Part 2}{11}{part.3}% 
+\contentsline {chapter}{\numberline {3}Chapter 3}{13}{chapter.3}% 
+\contentsline {part}{IV\hspace {1em}Indices and tables}{15}{part.4}% 
