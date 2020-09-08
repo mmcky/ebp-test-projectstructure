@@ -24,3 +24,7 @@ A [proposal](proposal.md) for changes is available
 An excellent resource for LaTeX document structures
 
 1. [LaTeX Document Structure](https://en.wikibooks.org/wiki/LaTeX/Document_Structure)
+
+## Sphinx Project References
+
+1. [Adding Parts to Sphinx](https://github.com/sphinx-doc/sphinx/issues/3357) which has a gist with a [prototype](https://gist.github.com/tk0miya/25bd52887adea5314fe15f1e3afc0949)
