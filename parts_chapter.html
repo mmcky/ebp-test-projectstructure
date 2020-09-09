@@ -212,6 +212,11 @@
    sectnum - Custom Section Numbering
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numref-numbered-references-html-and-latex">
+   numref - Numbered References (HTML and LaTeX)
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -350,6 +355,53 @@ have numbering such as in <code class="docutils literal notranslate"><span class
 :depth: 2
 :start: 3
 ```
+</pre></div>
+</div>
+</div>
+<div class="section" id="numref-numbered-references-html-and-latex">
+<h2>numref - Numbered References (HTML and LaTeX)<a class="headerlink" href="#numref-numbered-references-html-and-latex" title="Permalink to this headline">¶</a></h2>
+<p>sphinx provides a role that allows for the use of numbered
+references. However it requires a number of settings to be in place.</p>
+<ol class="simple">
+<li><p>The global <code class="docutils literal notranslate"><span class="pre">numbered:</span> <span class="pre">true</span></code> option must be switched on
+so Sphinx is generating section numbering</p></li>
+<li><p>Need to use <code class="docutils literal notranslate"><span class="pre">numref</span></code> roles when defining numbered references.</p></li>
+</ol>
+<p>The syntax needed for <code class="docutils literal notranslate"><span class="pre">numref</span></code> is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>This is a link to {numref}`section %s &lt;secref&gt;`
+```
+
+to give a reference such as
+
+```
+This is a link to section 1.1
+```
+
+This works in both `html` and `latex`
+
+```{note}
+Section numbering in jupyter-book currently resets for each part
+when using part_chapter structure for `_toc.yml`. However the links
+resolve to the correct location despite the same numbers
+```
+
+The following `_toc.yml`:
+
+```yaml
+- file: intro
+  numbered: true
+
+- part: part1
+  chapters:
+  - file: part1/chapter1
+  - file: part1/chapter2
+
+- part: part2
+  chapters:
+  - file: part2/chapter3
+```
+
+produces [html](https://htmlpreview.github.io/?https://github.com/mmcky/ebp-test-projectstructure/blob/master/parts_chapters/numref/_build/html/intro.html) and [pdf](https://github.com/mmcky/ebp-test-projectstructure/blob/master/parts_chapters/numref/_build/latex/book.pdf).
 </pre></div>
 </div>
 </div>

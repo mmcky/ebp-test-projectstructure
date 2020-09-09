@@ -149,3 +149,51 @@ have numbering such as in `chapter3.md`:
 :start: 3
 ```
 ````
+
+
+## numref - Numbered References (HTML and LaTeX)
+
+sphinx provides a role that allows for the use of numbered
+references. However it requires a number of settings to be in place. 
+
+1. The global `numbered: true` option must be switched on
+   so Sphinx is generating section numbering
+2. Need to use `numref` roles when defining numbered references.
+
+The syntax needed for `numref` is:
+
+````
+This is a link to {numref}`section %s <secref>`
+```
+
+to give a reference such as
+
+```
+This is a link to section 1.1
+```
+
+This works in both `html` and `latex`
+
+```{note}
+Section numbering in jupyter-book currently resets for each part
+when using part_chapter structure for `_toc.yml`. However the links
+resolve to the correct location despite the same numbers
+```
+
+The following `_toc.yml`:
+
+```yaml
+- file: intro
+  numbered: true
+
+- part: part1
+  chapters:
+  - file: part1/chapter1
+  - file: part1/chapter2
+
+- part: part2
+  chapters:
+  - file: part2/chapter3
+```
+
+produces [html](https://htmlpreview.github.io/?https://github.com/mmcky/ebp-test-projectstructure/blob/master/parts_chapters/numref/_build/html/intro.html) and [pdf](https://github.com/mmcky/ebp-test-projectstructure/blob/master/parts_chapters/numref/_build/latex/book.pdf).
