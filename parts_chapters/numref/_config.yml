@@ -1,0 +1,11 @@
+# Book settings
+title: Parts, Chapters and Sections (jupyterbook)
+author: EBP
+
+sphinx:
+  config:
+    numfig: true
+
+latex:
+  latex_documents:
+    targetname: book.tex
