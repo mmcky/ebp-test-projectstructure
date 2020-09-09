@@ -162,7 +162,7 @@ references. However it requires a number of settings to be in place.
 
 The syntax needed for `numref` is:
 
-````
+```md
 This is a link to {numref}`section %s <secref>`
 ```
 
