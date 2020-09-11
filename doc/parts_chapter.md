@@ -67,8 +67,6 @@ This sphinx example doesn't treat `parts` correctly in latex either:
 This is Part 1
 ```
 
-```
-
 ## bookpattern
 
 Most books would like `chapters` to be continuously numbered through `parts` structure
@@ -112,6 +110,32 @@ A `toctree` is added to the end of the `chapter1` document which causes issues w
 
 ```
 
+
+## PDF (Parts Configuration via Sphinx)
+
+Enabling `latex_toplevel_sectioning: "part"` via `_config.yml` in sphinx config enables `pdf` build with parts
+
+The following `_config.yml` applied to the `jupyterbook` test set is contained in `pdf-parts-config`
+
+```yaml
+# Book settings
+title: Parts, Chapters and Sections (jupyterbook)
+author: EBP
+
+latex:
+  latex_documents:
+    targetname: book.tex
+
+sphinx:
+  config:
+    latex_toplevel_sectioning: "part"
+```
+
+produces [html](https://htmlpreview.github.io/?https://github.com/mmcky/ebp-test-projectstructure/blob/master/parts_chapters/pdf_parts_config/_build/html/intro.html) and [pdf](https://github.com/mmcky/ebp-test-projectstructure/blob/master/parts_chapters/pdf_parts_config/_build/latex/book.pdf).
+
+```{Note}
+As noted in the Sphinx documentation this puts LaTeX and HTML section numbering out of alignment.
+```
 
 ## sectnum - Custom Section Numbering
 
