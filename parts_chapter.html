@@ -17,7 +17,6 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/sphinx-book-theme.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
@@ -208,6 +207,16 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bookpattern">
+   bookpattern
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pdf-parts-configuration-via-sphinx">
+   PDF (Parts Configuration via Sphinx)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sectnum-custom-section-numbering">
    sectnum - Custom Section Numbering
   </a>
@@ -286,28 +295,25 @@ This is Part 1
 </pre></div>
 </div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-## bookpattern
+</div>
+<div class="section" id="bookpattern">
+<h2>bookpattern<a class="headerlink" href="#bookpattern" title="Permalink to this headline">¶</a></h2>
+<p>Most books would like <code class="docutils literal notranslate"><span class="pre">chapters</span></code> to be continuously numbered through <code class="docutils literal notranslate"><span class="pre">parts</span></code> structure</p>
+<p>The following <code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code> produces:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">intro</span>
+  <span class="nt">numbered</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 
-Most books would like `chapters` to be continuously numbered through `parts` structure
+<span class="p p-Indicator">-</span> <span class="nt">part</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">part1</span>
+  <span class="nt">chapters</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">part1/chapter1</span>
+  <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">part1/chapter2</span>
 
-The following `_toc.yml` produces:
-
-```yaml
-- file: intro
-  numbered: true
-
-- part: part1
-  chapters:
-  - file: part1/chapter1
-  - file: part1/chapter2
-
-- part: part2
-  chapters:
-  - file: part2/chapter3
-    sections:
-      - file: part2/chapter3-section1
-      - file: part2/chapter3-section2
+<span class="p p-Indicator">-</span> <span class="nt">part</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">part2</span>
+  <span class="nt">chapters</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">part2/chapter3</span>
+    <span class="nt">sections</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">part2/chapter3-section1</span>
+      <span class="p p-Indicator">-</span> <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">part2/chapter3-section2</span>
 </pre></div>
 </div>
 <p>with <a class="reference external" href="https://htmlpreview.github.io/?https://github.com/mmcky/ebp-test-projectstructure/blob/master/parts_chapters/bookpattern/_build/html/intro.html">html</a> and <a class="reference external" href="https://github.com/mmcky/ebp-test-projectstructure/blob/master/parts_chapters/bookpattern/_build/latex/book.pdf">pdf</a>.</p>
@@ -324,6 +330,29 @@ The following `_toc.yml` produces:
         <span class="nt">&lt;compound</span> <span class="na">classes=</span><span class="s">&quot;toctree-wrapper&quot;</span><span class="nt">&gt;</span>
             <span class="nt">&lt;toctree</span> <span class="na">caption=</span><span class="s">&quot;part2&quot;</span> <span class="na">entries=</span><span class="s">&quot;(None,\ &#39;part2/chapter3&#39;)&quot;</span> <span class="na">glob=</span><span class="s">&quot;False&quot;</span> <span class="na">hidden=</span><span class="s">&quot;True&quot;</span> <span class="na">includefiles=</span><span class="s">&quot;part2/chapter3&quot;</span> <span class="na">includehidden=</span><span class="s">&quot;False&quot;</span> <span class="na">maxdepth=</span><span class="s">&quot;-1&quot;</span> <span class="na">numbered=</span><span class="s">&quot;999&quot;</span> <span class="na">parent=</span><span class="s">&quot;intro&quot;</span> <span class="na">rawcaption=</span><span class="s">&quot;part2&quot;</span> <span class="na">rawentries=</span><span class="s">&quot;&quot;</span> <span class="na">titlesonly=</span><span class="s">&quot;True&quot;</span><span class="nt">&gt;</span>
 </pre></div>
+</div>
+</div>
+<div class="section" id="pdf-parts-configuration-via-sphinx">
+<h2>PDF (Parts Configuration via Sphinx)<a class="headerlink" href="#pdf-parts-configuration-via-sphinx" title="Permalink to this headline">¶</a></h2>
+<p>Enabling <code class="docutils literal notranslate"><span class="pre">latex_toplevel_sectioning:</span> <span class="pre">&quot;part&quot;</span></code> via <code class="docutils literal notranslate"><span class="pre">_config.yml</span></code> in sphinx config enables <code class="docutils literal notranslate"><span class="pre">pdf</span></code> build with parts</p>
+<p>The following <code class="docutils literal notranslate"><span class="pre">_config.yml</span></code> applied to the <code class="docutils literal notranslate"><span class="pre">jupyterbook</span></code> test set is contained in <code class="docutils literal notranslate"><span class="pre">pdf-parts-config</span></code></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Book settings</span>
+<span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Parts, Chapters and Sections (jupyterbook)</span>
+<span class="nt">author</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">EBP</span>
+
+<span class="nt">latex</span><span class="p">:</span>
+  <span class="nt">latex_documents</span><span class="p">:</span>
+    <span class="nt">targetname</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">book.tex</span>
+
+<span class="nt">sphinx</span><span class="p">:</span>
+  <span class="nt">config</span><span class="p">:</span>
+    <span class="nt">latex_toplevel_sectioning</span><span class="p">:</span> <span class="s">&quot;part&quot;</span>
+</pre></div>
+</div>
+<p>produces <a class="reference external" href="https://htmlpreview.github.io/?https://github.com/mmcky/ebp-test-projectstructure/blob/master/parts_chapters/pdf_parts_config/_build/html/intro.html">html</a> and <a class="reference external" href="https://github.com/mmcky/ebp-test-projectstructure/blob/master/parts_chapters/pdf_parts_config/_build/latex/book.pdf">pdf</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As noted in the Sphinx documentation this puts LaTeX and HTML section numbering out of alignment.</p>
 </div>
 </div>
 <div class="section" id="sectnum-custom-section-numbering">
