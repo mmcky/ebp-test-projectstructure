@@ -3,6 +3,9 @@ title: Parts, Chapters and Sections (jupyterbook)
 author: EBP
 
 latex:
-  latex_toplevel_sectioning: "part"
   latex_documents:
     targetname: book.tex
+
+sphinx:
+  config:
+    latex_toplevel_sectioning: "part"
