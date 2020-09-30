@@ -1,0 +1,6 @@
+- file: intro
+  numbered: true
+- file: chapter1
+- file: search
+- file: nested/search
+
