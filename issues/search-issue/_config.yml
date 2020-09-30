@@ -1,0 +1,7 @@
+# Book settings
+title: Search Document Issue
+author: EBP
+
+latex:
+  latex_documents:
+    targetname: issue.tex
