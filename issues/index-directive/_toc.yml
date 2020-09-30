@@ -1,0 +1,10 @@
+- file: intro
+  numbered: true
+- file: chapter1
+- file: chapter2
+  title: Chapter2 Alternate Title
+- file: chapter3
+  sections:
+    - file: chapter3section2
+- file: references
+
